@@ -1,0 +1,57 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="optativas.cursos_list">
+      <field name="name">Listar Cursos</field>
+      <field name="model">optativas.curso</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+        </tree>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="optativas.action_window_cursos">
+      <field name="name">optativas window</field>
+      <field name="res_model">optativas.curso</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    -->
+
+    <!-- server action to the one above -->
+    <!--
+    <record model="ir.actions.server" id="optativas.action_server">
+      <field name="name">optativas server</field>
+      <field name="model_id" ref="model_optativas_optativas"/>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": self._name,
+        }
+      </field>
+    </record>
+    -->
+
+    <!-- Top menu item -->
+
+    <!-- <menuitem name="Optativas" id="optativas.menu_root"/> -->
+
+    <!-- menu categories -->
+
+    <!-- <menuitem name="Listados" id="optativas.menu_listados" parent="optativas.menu_root"/> -->
+    <!--<menuitem name="Menu 2" id="optativas.menu_2" parent="optativas.menu_root"/>
+    -->
+    <!-- actions -->
+
+    <menuitem name="Cursos" id="optativas.menu_cursos_list" parent="optativas.menu_listados"
+              action="optativas.action_window_cursos"/>
+    <!--<menuitem name="Server to list" id="optativas" parent="optativas.menu_2"
+              action="optativas.action_server"/>
+    -->
+  </data>
+</odoo>
